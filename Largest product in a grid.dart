@@ -20,6 +20,7 @@ main(List<String> args) {
       "20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54" +
       "01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48";
 
+  //parse grid
   String trimGrid = grid.replaceAll(" ", "");
   List<int> gridList = [];
   int sum = 0;
@@ -33,35 +34,69 @@ main(List<String> args) {
       sum = 0;
     }
   }
+
   int multiplierCount = 4;
   int biggestProduct = 0;
-  //sagdan sola maksimum carpim icin
-  for (int i = 0; i < (gridList.length - multiplierCount - 1); i++) {
-    int product = 1;
-    if () {
-    } else {
-    for (int j = 0; j < multiplierCount; j++) {
-      product = product * gridList[i + j];
+
+  int calculateToRight() {
+    for (int i = 0; i < (gridList.length - multiplierCount - 1); i++) {
+      int product = 1;
+      for (int j = 0; j < multiplierCount; j++) {
+        product = product * gridList[i + j];
+      }
+      if (product > biggestProduct) {
+        biggestProduct = product;
+      }
     }
-    if (product > biggestProduct) {
-      biggestProduct = product;
-    }
+    return biggestProduct;
   }
-}
-}
 
-int sumUp = 0;
-int sumRight = 0;
-int sumDiagonal = 0;
+  biggestProduct = 0;
 
-int calculateToUp() {
-  return sumUp;
-}
+  int calculateToUp() {
+    for (int i = 0; i < (gridList.length - 60); i++) {
+      int product = 1;
+      for (int j = 0; j < multiplierCount; j++) {
+        product = product * gridList[i + (j * 20)];
+      }
+      if (product > biggestProduct) {
+        biggestProduct = product;
+      }
+    }
+    return biggestProduct;
+  }
 
-int calculateToRight() {
-  return sumRight;
-}
+  biggestProduct = 0;
 
-int calculateToDiagonal() {
-  return sumDiagonal;
+  int calculateToDiagonal() {
+    for (int i = 0; i < (gridList.length - 63); i++) {
+      int product = 1;
+      for (int j = 0; j < multiplierCount; j++) {
+        product = product * gridList[i + (j * 21)];
+      }
+      if (product > biggestProduct) {
+        biggestProduct = product;
+      }
+    }
+    return biggestProduct;
+  }
+
+  int calculateToDiagonalUpward() {
+    for (int i = 3; i < (gridList.length - 60); i++) {
+      int product = 1;
+      for (int j = 0; j < multiplierCount; j++) {
+        product = product * gridList[i + (j * 19)];
+      }
+      if (product > biggestProduct) {
+        biggestProduct = product;
+      }
+    }
+    return biggestProduct;
+  }
+
+  print(calculateToRight());
+  print(calculateToUp());
+  print(calculateToDiagonal());
+  print(calculateToDiagonalUpward());
+
 }
