@@ -38,7 +38,8 @@ main(List<String> args) {
   int multiplierCount = 4;
   int biggestProduct = 0;
 
-  int calculateToRight() {
+  //product methods
+  int calculateToMaxProduct(detectDirection()) {
     for (int i = 0; i < (gridList.length - multiplierCount - 1); i++) {
       int product = 1;
       for (int j = 0; j < multiplierCount; j++) {
@@ -51,52 +52,80 @@ main(List<String> args) {
     return biggestProduct;
   }
 
+  int detectDirection(String direction) {
+    if (direction == 'up' || direction == 'down') {
+      return 340;
+    } else if (direction == 'left' || direction == 'right') {
+      return 395;
+    } else if (direction == 'left diagonal') {
+      return 337;
+    } else if (direction == 'right diagonal') {
+      return 340;
+    } else if (direction == 'max') {
+      return 5;
+    }
+  }
+
+  print(detectDirection('max'));
+  // int calculateToRight() {
+  //   for (int i = 0; i < (gridList.length - multiplierCount - 1); i++) {
+  //     int product = 1;
+  //     for (int j = 0; j < multiplierCount; j++) {
+  //       product = product * gridList[i + j];
+  //     }
+  //     if (product > biggestProduct) {
+  //       biggestProduct = product;
+  //     }
+  //   }
+  //   return biggestProduct;
+  // }
+
   biggestProduct = 0;
 
-  int calculateToUp() {
-    for (int i = 0; i < (gridList.length - 60); i++) {
-      int product = 1;
-      for (int j = 0; j < multiplierCount; j++) {
-        product = product * gridList[i + (j * 20)];
-      }
-      if (product > biggestProduct) {
-        biggestProduct = product;
-      }
-    }
-    return biggestProduct;
-  }
+  // int calculateToUp() {
+  //   for (int i = 0; i < (gridList.length - 60); i++) {
+  //     int product = 1;
+  //     for (int j = 0; j < multiplierCount; j++) {
+  //       product = product * gridList[i + (j * 20)];
+  //     }
+  //     if (product > biggestProduct) {
+  //       biggestProduct = product;
+  //     }
+  //   }
+  //   return biggestProduct;
+  // }
 
   biggestProduct = 0;
 
-  int calculateToDiagonal() {
-    for (int i = 0; i < (gridList.length - 63); i++) {
-      int product = 1;
-      for (int j = 0; j < multiplierCount; j++) {
-        product = product * gridList[i + (j * 21)];
-      }
-      if (product > biggestProduct) {
-        biggestProduct = product;
-      }
-    }
-    return biggestProduct;
-  }
+  // int calculateToDiagonal() {
+  //   for (int i = 0; i < (gridList.length - 63); i++) {
+  //     int product = 1;
+  //     for (int j = 0; j < multiplierCount; j++) {
+  //       product = product * gridList[i + (j * 21)];
+  //     }
+  //     if (product > biggestProduct) {
+  //       biggestProduct = product;
+  //     }
+  //   }
+  //   return biggestProduct;
+  // }
 
-  int calculateToDiagonalUpward() {
-    for (int i = 3; i < (gridList.length - 60); i++) {
-      int product = 1;
-      for (int j = 0; j < multiplierCount; j++) {
-        product = product * gridList[i + (j * 19)];
-      }
-      if (product > biggestProduct) {
-        biggestProduct = product;
-      }
-    }
-    return biggestProduct;
-  }
+  // int calculateToDiagonalUpward() {
+  //   for (int i = 3; i < (gridList.length - 60); i++) {
+  //     int product = 1;
+  //     for (int j = 0; j < multiplierCount; j++) {
+  //       product = product * gridList[i + (j * 19)];
+  //     }
+  //     if (product > biggestProduct) {
+  //       biggestProduct = product;
+  //     }
+  //   }
+  //   return biggestProduct;
+  // }
 
-  print(calculateToRight());
-  print(calculateToUp());
-  print(calculateToDiagonal());
-  print(calculateToDiagonalUpward());
-
+  print(calculateToMaxProduct());
+  // print(calculateToRight());
+  // print(calculateToUp());
+  // print(calculateToDiagonal());
+  // print(calculateToDiagonalUpward());
 }
