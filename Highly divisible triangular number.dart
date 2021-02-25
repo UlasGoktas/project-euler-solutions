@@ -1,32 +1,26 @@
 main(List<String> args) {
-  print(divisorsInput);
+  calculateSum();
 }
 
-int count = 7;
-int divisorsCount = 0;
-int divisorsInput = generatorTriangleNumber(count);
-int divisorsCountt = calculateDivisors(divisorsInput);
-
-int generatorTriangleNumber(int count) {
-  int wantedTriangleNumber = 0;
-  int firstTriangleNumber = 1;
-
-  for (var i = 0; i < count; i++) {
-    wantedTriangleNumber += firstTriangleNumber + i;
-  }
-
-  return wantedTriangleNumber;
-}
-
-void calculateDivisors(divisorsInput) {
-  for (int i = 0; i < 500; i++) {
-    for (int j = 0; j < 500; j++) {
-      if (divisorsCount >= 500) {
-        break;
-      } else if (divisorsInput % i == 0) {
-        divisorsCount++;
-      }
+int calculateDivisors(double x) {
+  int divider = 1;
+  for (int i = 2; i <= x; i++) {
+    if (x % i == 0) {
+      divider++;
     }
-    print(divisorsCount);
+  }
+  return divider * 2;
+}
+
+void calculateSum() {
+  int n = 1;
+  while (true) {
+    double triangleNumber = (n * (n + 1)) / 2;
+    if (calculateDivisors(triangleNumber) >= 500) {
+      print(triangleNumber);
+      print(calculateDivisors(triangleNumber));
+      break;
+    }
+    n++;
   }
 }
