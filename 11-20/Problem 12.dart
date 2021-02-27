@@ -1,10 +1,12 @@
+import 'dart:math';
+
 main(List<String> args) {
   calculateSum();
 }
 
 int calculateDivisors(double x) {
   int divider = 1;
-  for (int i = 2; i <= x; i++) {
+  for (int i = 2; i <= sqrt(x); i++) {
     if (x % i == 0) {
       divider++;
     }

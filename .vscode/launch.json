@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {   
-            "program": "Highly divisible triangular number.dart",
+            "program": "11-20/Problem 13.dart",
             "name": "Dart & Flutter",
             "request": "launch",
             "type": "dart"

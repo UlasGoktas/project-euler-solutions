@@ -21,19 +21,21 @@ main(List<String> args) {
       "01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48";
 
   //parse grid
-  String trimGrid = grid.replaceAll(" ", "");
+  String trimedGrid = grid.replaceAll(" ", "");
   List<int> gridList = [];
   int sum = 0;
 
   for (int i = 0; i < 800; i++) {
     if (i.isEven) {
-      sum = int.parse(trimGrid[i]) * 10;
+      sum = int.parse(trimedGrid[i]) * 10;
     } else {
-      sum += int.parse(trimGrid[i]);
+      sum += int.parse(trimedGrid[i]);
       gridList.add(sum);
       sum = 0;
     }
   }
+
+  print(gridList);
 
   int multiplierCount = 4;
   int biggestProduct = 0;
